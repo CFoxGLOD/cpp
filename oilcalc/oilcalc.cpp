@@ -115,9 +115,9 @@ double oilcalc(uchastok uch)
 			if (round(nagruz) >= uch.koeff[0][j] && round(nagruz) < uch.koeff[0][j + 1])
 			{
 
-				cout << "наш клиент по табличке" << round(nagruz) << endl;
+				cout << "наш клиент по табличке: " << round(nagruz) << endl;
 				tmp = uch.koeff[1][j];
-				cout << "коэффициент " << tmp << endl;
+				cout << "коэффициент: " << tmp << endl;
 			}
 		}
 	}
@@ -139,7 +139,7 @@ void printKoeff(uchastok uch)
 double nagruzka(int ves)
 {
 	int osi;
-	cout << "ввеи оси:";
+	cout << "введи оси:";
 	cin >> osi;
 	cout << "нагрузка:" << (double)ves / (double)osi << endl;
 	return (double)ves / (double)osi;
