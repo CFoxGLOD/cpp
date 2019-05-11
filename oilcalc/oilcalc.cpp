@@ -2,7 +2,10 @@
 #include <math.h>
 
 using namespace std;
-
+struct uchastok{
+	
+};
+double oilcalc(double[2][21], double);
 int main()
 {
 	int ves, osi;
@@ -23,23 +26,13 @@ int main()
 	{36.26, 31.42, 27.95, 25.35, 23.33, 21.71, 20.39, 19.28, 18.35, 17.56, 16.87, 16.26, 15.72,
 	 15.25, 14.81, 14.44, 14.10, 13.76, 13.48, 13.21, 12.97}
 	};
-	if (round(nagruz) < 5 || round(nagruz) > 21)
-	{
+
+		oilcalc(VLKabel,norma);
+		return 0;
 
 	}
-	else
-	{
-		for (int j = 0; j < 21; j++)
-		{
-			cout << VLKabel[0][j] << "|";
-			cout << VLKabel[1][j] << endl;
-			if (round(nagruz) >= VLKabel[0][j] && round(nagruz) < VLKabel[0][j + 1])
-			{
-
-				cout << "^наш клиент " << round(nagruz) << endl;
-			}
-		}
+	
+	double oilcalc(double normat[2][21], double u){
+	return 9;
+		
 	}
-	return 0;
-
-}
