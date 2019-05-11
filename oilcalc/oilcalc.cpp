@@ -19,10 +19,15 @@ uchastok VlSeb;
 double oilcalc(uchastok);
 void printKoeff(uchastok);
 double nagruzka(int ves);
+double sgorelOil();
 
 int main()
 {
-	double kiloA,kiloB;
+	double kiloA, kiloB;
+	cout << "пишем соляру на А" << endl;
+	kiloA = sgorelOil();
+	cout << "пишем соляру на Б" << endl;
+	kiloB = sgorelOil();
 	double nagruz, norma;
 	cout << "добро пожаловать" << endl;
 	VlRg =
@@ -104,7 +109,7 @@ double oilcalc(uchastok uch)
 		{
 			cout << "Эверест спиздил? Нагрузка на ось:" << nagruz <<
 				endl;
-				return 0;
+			return 0;
 		}
 	}
 	else
@@ -112,7 +117,7 @@ double oilcalc(uchastok uch)
 		for (int j = 0; j < 21; j++)
 		{
 			// cout << uch.koeff[0][j] << "|";
-			//  cout << uch.koeff[1][j] << endl;
+			// cout << uch.koeff[1][j] << endl;
 			if (round(nagruz) >= uch.koeff[0][j] && round(nagruz) < uch.koeff[0][j + 1])
 			{
 
@@ -146,6 +151,18 @@ double nagruzka(int ves)
 	return (double)ves / (double)osi;
 }
 
-double sgorelOil(){
-	double 
+double sgorelOil()
+{
+	double pr, sd, koeff, prKg, sdKg;
+	cout << "скок принял:";
+	cin >> pr;
+	cout << "скок сдал:";
+	cin >> sd;
+	cout << "плотность х1000:";
+	cin >> koeff;
+	koeff /= 1000;
+	cout << "принял в КГ:\t" << pr * koeff << endl;
+	cout << "сдал в КГ:\t" << sd * koeff << endl;
+	cout << "ушло в литрах:\t" << pr - sd << endl;
+	 cout << "спалил в КГ:\t" << pr * koeff - sd * koeff << endl;
 }
