@@ -23,11 +23,8 @@ double sgorelOil();
 
 int main()
 {
-	double kiloA, kiloB;
-	cout << "\033[35mпишем соляру на А\033[0m" << endl;
-	kiloA = sgorelOil();
-	cout << "\033[35mпишем соляру на Б\033[0m" << endl;
-	kiloB = sgorelOil();
+	int okno;
+	 double kiloA, kiloB;
 	double nagruz, norma;
 	cout << "добро пожаловать" << endl;
 	VlRg =
@@ -62,31 +59,56 @@ int main()
 	VlSeb.trogan = 7.12;
 	VlSeb.kilom = 140;
 	VlSeb.name = "луки-себеж";
-//	system("cls");
-	int menu;
-	cout << "плечо какое?" << endl;
-	cout << "1 ржевское" << endl;
-	cout << "2 лабусовское" << endl;
-	cout << "3 до себежа" << endl;
-	cout << "4 себеж-резекне" << endl;
-	cin >> menu;
-	switch (menu)
+	// system("cls");
+	do
 	{
-	case 1:
-		cout << oilcalc(VlRg);
-		break;
-	case 2:
-		cout << oilcalc(VlRez);
-		break;
-	case 3:
-		cout << oilcalc(VlSeb);
-		break;
-	case 4:
-		cout << oilcalc(SebRez);
-		break;
-	default:
-		cout << "проспись, таких цифр тут нет";
+		int menu1;
+		cout << "1 ввести солярку" << endl;
+		cout << "2 посчитать солярку" << endl;
+		cin >> menu1;
+
+		switch (menu1)
+		{
+		case 1:
+			cout << "\033[35mпишем соляру на А\033[0m" << endl;
+			kiloA = sgorelOil();
+			cout << "\033[35mпишем соляру на Б\033[0m" << endl;
+			kiloB = sgorelOil();
+			break;
+		case 2:
+			int menu;
+			cout << "плечо какое?" << endl;
+			cout << "1 ржевское" << endl;
+			cout << "2 лабусовское" << endl;
+			cout << "3 до себежа" << endl;
+			cout << "4 себеж-резекне" << endl;
+			cin >> menu;
+			switch (menu)
+			{
+			case 1:
+				cout << oilcalc(VlRg);
+				break;
+			case 2:
+				cout << oilcalc(VlRez);
+				break;
+			case 3:
+				cout << oilcalc(VlSeb);
+				break;
+			case 4:
+				cout << oilcalc(SebRez);
+				break;
+			default:
+				cout << "проспись, таких цифр тут нет";
+			}
+			break;
+		default:
+			cout << "глаза разуй разъёба" << endl;
+		}
+		cout << "продолжить? 0-нет, 54685438-да";
+
+		cin >> okno;
 	}
+	while (okno);
 	return 0;
 
 }
@@ -165,5 +187,5 @@ double sgorelOil()
 	cout << "\033[32mпринял в КГ:\t" << pr * koeff << endl;
 	cout << "\033[31mсдал в КГ:\t" << sd * koeff << endl;
 	cout << "\033[0mушло в литрах:\t" << pr - sd << endl;
-	 cout << "спалил в КГ:\t" << pr * koeff - sd * koeff << endl;
+	cout << "спалил в КГ:\t" << pr * koeff - sd * koeff << endl;
 }
