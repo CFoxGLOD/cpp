@@ -22,6 +22,7 @@ double nagruzka(int ves);
 
 int main()
 {
+	double kiloA,kiloB;
 	double nagruz, norma;
 	cout << "добро пожаловать" << endl;
 	VlRg =
@@ -143,4 +144,8 @@ double nagruzka(int ves)
 	cin >> osi;
 	cout << "нагрузка:" << (double)ves / (double)osi << endl;
 	return (double)ves / (double)osi;
+}
+
+double sgorelOil(){
+	double 
 }
