@@ -24,8 +24,8 @@ double sgorelOil();
 int main()
 {
 	int okno;
-	 double kiloA, kiloB;
-	double nagruz, norma;
+	double kiloA=0, kiloB=0;
+	double nagruz, norma=0;
 	cout << "добро пожаловать" << endl;
 	VlRg =
 	{
@@ -72,6 +72,7 @@ int main()
 		case 1:
 			cout << "\033[35mпишем соляру на А\033[0m" << endl;
 			kiloA = sgorelOil();
+			cout<<"+++++"<<kiloA<<endl;
 			cout << "\033[35mпишем соляру на Б\033[0m" << endl;
 			kiloB = sgorelOil();
 			break;
@@ -86,23 +87,31 @@ int main()
 			switch (menu)
 			{
 			case 1:
-				cout << oilcalc(VlRg);
+				norma = oilcalc(VlRg);
+				cout << norma << endl;
 				break;
 			case 2:
-				cout << oilcalc(VlRez);
+				norma = oilcalc(VlRez);
+				cout << norma << endl;
 				break;
 			case 3:
-				cout << oilcalc(VlSeb);
+				norma = oilcalc(VlSeb);
+				cout << norma << endl;
 				break;
 			case 4:
-				cout << oilcalc(SebRez);
-				break;
+				norma = oilcalc(SebRez);
+				cout << norma << endl;
+				 break;
 			default:
 				cout << "проспись, таких цифр тут нет";
 			}
 			break;
 		default:
 			cout << "глаза разуй разъёба" << endl;
+		}
+		if(kiloA>0&&norma>0){
+			cout<<"норма расхода:"<<kiloA+kiloB<<" норма:"<<norma<<endl;
+			cout<<"итого: "<<(kiloA+kiloB)-norma<<endl;
 		}
 		cout << "продолжить? 0-нет, 54685438-да";
 
@@ -188,4 +197,5 @@ double sgorelOil()
 	cout << "\033[31mсдал в КГ:\t" << sd * koeff << endl;
 	cout << "\033[0mушло в литрах:\t" << pr - sd << endl;
 	cout << "спалил в КГ:\t" << pr * koeff - sd * koeff << endl;
+	return pr * koeff - sd * koeff;
 }
