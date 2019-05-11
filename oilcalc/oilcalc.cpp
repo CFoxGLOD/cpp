@@ -2,10 +2,7 @@
 #include <math.h>
 
 using namespace std;
-struct x
-{
-	int ba[5][5];
-};
+
 struct uchastok
 {
 	double koeff[2][21];
