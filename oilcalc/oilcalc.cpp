@@ -24,9 +24,9 @@ double sgorelOil();
 int main()
 {
 	double kiloA, kiloB;
-	cout << "пишем соляру на А" << endl;
+	cout << "\033[35mпишем соляру на А\033[0m" << endl;
 	kiloA = sgorelOil();
-	cout << "пишем соляру на Б" << endl;
+	cout << "\033[35mпишем соляру на Б\033[0m" << endl;
 	kiloB = sgorelOil();
 	double nagruz, norma;
 	cout << "добро пожаловать" << endl;
@@ -62,6 +62,7 @@ int main()
 	VlSeb.trogan = 7.12;
 	VlSeb.kilom = 140;
 	VlSeb.name = "луки-себеж";
+//	system("cls");
 	int menu;
 	cout << "плечо какое?" << endl;
 	cout << "1 ржевское" << endl;
@@ -161,8 +162,8 @@ double sgorelOil()
 	cout << "плотность х1000:";
 	cin >> koeff;
 	koeff /= 1000;
-	cout << "принял в КГ:\t" << pr * koeff << endl;
-	cout << "сдал в КГ:\t" << sd * koeff << endl;
-	cout << "ушло в литрах:\t" << pr - sd << endl;
+	cout << "\033[32mпринял в КГ:\t" << pr * koeff << endl;
+	cout << "\033[31mсдал в КГ:\t" << sd * koeff << endl;
+	cout << "\033[0mушло в литрах:\t" << pr - sd << endl;
 	 cout << "спалил в КГ:\t" << pr * koeff - sd * koeff << endl;
 }
