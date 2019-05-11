@@ -20,13 +20,13 @@ double oilcalc(uchastok);
 void printKoeff(uchastok);
 double nagruzka(int ves);
 double sgorelOil();
-
+double normast(int, uchastok);
 int main()
 {
 	int okno;
-	double kiloA=0, kiloB=0;
-	double nagruz, norma=0;
-	cout << "добро пожаловать" << endl;
+	double kiloA = 0, kiloB = 0;
+	double nagruz, norma = 0;
+	 cout << "добро пожаловать" << endl;
 	VlRg =
 	{
 	5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 36.26,
@@ -72,7 +72,7 @@ int main()
 		case 1:
 			cout << "\033[35mпишем соляру на А\033[0m" << endl;
 			kiloA = sgorelOil();
-			cout<<"+++++"<<kiloA<<endl;
+			cout << "+++++" << kiloA << endl;
 			cout << "\033[35mпишем соляру на Б\033[0m" << endl;
 			kiloB = sgorelOil();
 			break;
@@ -101,7 +101,7 @@ int main()
 			case 4:
 				norma = oilcalc(SebRez);
 				cout << norma << endl;
-				 break;
+				break;
 			default:
 				cout << "проспись, таких цифр тут нет";
 			}
@@ -109,9 +109,11 @@ int main()
 		default:
 			cout << "глаза разуй разъёба" << endl;
 		}
-		if(kiloA>0&&norma>0){
-			cout<<"норма расхода:"<<kiloA+kiloB<<" норма:"<<norma<<endl;
-			cout<<"итого: "<<(kiloA+kiloB)-norma<<endl;
+		if (kiloA > 0 && norma > 0)
+		{
+			cout << "норма расхода:" << kiloA +
+				kiloB << " норма:" << norma << endl;
+			cout << "итого: " << (kiloA + kiloB) - norma << endl;
 		}
 		cout << "продолжить? 0-нет, 54685438-да";
 
@@ -124,7 +126,7 @@ int main()
 
 double oilcalc(uchastok uch)
 {
-	double tmp;
+	double tmp,tmptrog;
 	cout << "выбран " << uch.name << endl;
 	int ves;
 	cout << "введи вес поезда:";
@@ -156,11 +158,22 @@ double oilcalc(uchastok uch)
 				cout << "наш клиент по табличке: " << round(nagruz) << endl;
 				tmp = uch.koeff[1][j];
 				cout << "коэффициент: " << tmp << endl;
+				 xtrog=normast(ves, uch);
 			}
 		}
 	}
 	return tmp * ves * uch.kilom / 10000;
 
+}
+
+double normast(int ves, uchastok normTrog)
+{
+	cout << "сколько раз трогался? " << endl;
+	int trog;
+	cin >> trog;
+	cout << "за трогание положено :" << ((double)ves / 1000) * normTrog.trogan *
+		trog << endl;
+	return ((double)ves / 1000) * normTrog.trogan * trog;
 }
 
 void printKoeff(uchastok uch)
