@@ -26,7 +26,7 @@ int main()
 	int okno;
 	double kiloA = 0, kiloB = 0;
 	double nagruz, norma = 0;
-	 cout << "добро пожаловать" << endl;
+	cout << "добро пожаловать" << endl;
 	VlRg =
 	{
 	5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 36.26,
@@ -88,19 +88,15 @@ int main()
 			{
 			case 1:
 				norma = oilcalc(VlRg);
-				cout << norma << endl;
 				break;
 			case 2:
 				norma = oilcalc(VlRez);
-				cout << norma << endl;
 				break;
 			case 3:
 				norma = oilcalc(VlSeb);
-				cout << norma << endl;
-				break;
 			case 4:
-				norma = oilcalc(SebRez);
-				cout << norma << endl;
+				norma += oilcalc(SebRez);
+				cout<<"итого норма луки-резекне: "<<norma<<endl;
 				break;
 			default:
 				cout << "проспись, таких цифр тут нет";
@@ -111,11 +107,11 @@ int main()
 		}
 		if (kiloA > 0 && norma > 0)
 		{
-			cout << "норма расхода:" << kiloA +
-				kiloB << " норма:" << norma << endl;
-			cout << "итого: " << (kiloA + kiloB) - norma << endl;
+			cout << "\033[35mизрасходовано в КГ:" << kiloA +
+				kiloB << " \033[33mнорма:" << norma << endl;
+			cout << "\033[34mитого: " << norma-(kiloA + kiloB)<< endl;
 		}
-		cout << "продолжить? 0-нет, 54685438-да";
+		cout << "\033[0mпродолжить? 0-нет, 54685438-да";
 
 		cin >> okno;
 	}
@@ -126,7 +122,7 @@ int main()
 
 double oilcalc(uchastok uch)
 {
-	double tmp,tmptrog;
+	double tmp, xtrog;
 	cout << "выбран " << uch.name << endl;
 	int ves;
 	cout << "введи вес поезда:";
@@ -158,11 +154,14 @@ double oilcalc(uchastok uch)
 				cout << "наш клиент по табличке: " << round(nagruz) << endl;
 				tmp = uch.koeff[1][j];
 				cout << "коэффициент: " << tmp << endl;
-				 xtrog=normast(ves, uch);
+				xtrog = normast(ves, uch);
 			}
 		}
 	}
-	return tmp * ves * uch.kilom / 10000;
+	cout << "итого работа:" << tmp * ves * uch.kilom /
+		10000 << " трогание:" << xtrog << " в сумме:" << (tmp * ves * uch.kilom /
+																		10000) + xtrog << endl;
+	 return tmp * ves * uch.kilom / 10000;
 
 }
 
